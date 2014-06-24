@@ -1,0 +1,479 @@
+Using worker: worker-linux-6-1.bb.travis-ci.org:travis-linux-19
+
+git.1
+
+$ git clone --depth=50 --branch=master git://github.com/secure-pipeline/rails-travis-example.git secure-pipeline/rails-travis-example
+
+Cloning into 'secure-pipeline/rails-travis-example'...
+
+remote: Counting objects: 520, done.
+
+remote: Compressing objects: 100% (422/422), done.
+
+remote: Total 520 (delta 161), reused 412 (delta 71)
+
+Receiving objects: 100% (520/520), 754.95 KiB | 0 bytes/s, done.
+
+Resolving deltas: 100% (161/161), done.
+
+Checking connectivity... done.
+
+$ cd secure-pipeline/rails-travis-example
+git.3
+
+$ git checkout -qf a6b0c6f323ab35ecc1ec244e51d811e1172ab4b0
+git.4
+
+$ git submodule init
+
+Submodule 'vendor/Garmr' (https://github.com/mozilla/Garmr.git) registered for path 'vendor/Garmr'
+
+Submodule 'vendor/sqlmap' (https://github.com/sqlmapproject/sqlmap.git) registered for path 'vendor/sqlmap'
+git.5
+
+$ git submodule update
+
+Cloning into 'vendor/Garmr'...
+
+remote: Counting objects: 171, done.
+
+remote: Compressing objects: 100% (81/81), done.
+
+remote: Total 171 (delta 79), reused 171 (delta 79)
+
+Receiving objects: 100% (171/171), 54.55 KiB | 0 bytes/s, done.
+
+Resolving deltas: 100% (79/79), done.
+
+Checking connectivity... done.
+
+Submodule path 'vendor/Garmr': checked out 'c8ea361d4fdd652bc751a1776e89d2b5148e9f8c'
+
+Cloning into 'vendor/sqlmap'...
+
+remote: Reusing existing pack: 44510, done.
+
+remote: Counting objects: 15, done.
+
+remote: Compressing objects: 100% (15/15), done.
+
+remote: Total 44525 (delta 5), reused 0 (delta 0)
+
+Receiving objects: 100% (44525/44525), 40.27 MiB | 20.90 MiB/s, done.
+
+Resolving deltas: 100% (34148/34148), done.
+
+Checking connectivity... done.
+
+Submodule path 'vendor/sqlmap': checked out '11dee4c8cdc383f5603a7f3d5ee0449803d06d5d'
+rvm.1
+
+$ rvm use 2.0.0 --install --binary --fuzzy
+
+Using /home/travis/.rvm/gems/ruby-2.0.0-p451
+
+$ export BUNDLE_GEMFILE=$PWD/Gemfile
+
+$ ruby --version
+
+ruby 2.0.0p451 (2014-02-24 revision 45167) [x86_64-linux]
+
+$ rvm --version
+
+rvm 1.25.25 (latest-minor) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+
+$ gem --version
+
+2.2.2
+
+$ bundle --version
+
+Bundler version 1.6.2
+before_install
+
+$ git submodule update --init --recursive
+install
+
+$ bundle install --deployment
+
+Fetching source index from https://rubygems.org/
+
+Installing rake 10.3.2
+
+Installing i18n 0.6.9
+
+Installing multi_json 1.10.1
+
+Installing activesupport 3.2.12
+
+Installing builder 3.0.4
+
+Installing activemodel 3.2.12
+
+Installing erubis 2.7.0
+
+Installing journey 1.0.4
+
+Installing rack 1.4.5
+
+Installing rack-cache 1.2
+
+Installing rack-test 0.6.2
+
+Installing hike 1.2.3
+
+Installing tilt 1.4.1
+
+Installing sprockets 2.2.2
+
+Installing actionpack 3.2.12
+
+Installing mime-types 1.25.1
+
+Installing polyglot 0.3.5
+
+Installing treetop 1.4.15
+
+Installing mail 2.4.4
+
+Installing actionmailer 3.2.12
+
+Installing arel 3.0.3
+
+Installing tzinfo 0.3.39
+
+Installing activerecord 3.2.12
+
+Installing activeresource 3.2.12
+
+Installing addressable 2.3.6
+
+Installing arachni-rpc 0.1.3
+
+Installing eventmachine 1.0.3
+
+Installing em-synchrony 1.0.3
+
+Installing arachni-rpc-em 0.2
+
+Installing awesome_print 1.2.0
+
+Using bundler 1.6.2
+
+Installing highline 1.6.21
+
+Installing json 1.8.1
+
+Installing mini_portile 0.5.3
+
+Installing nokogiri 1.6.1
+
+Installing pony 1.9
+
+Installing rb-readline 0.5.1
+
+Installing sys-proctable 0.9.4
+
+Installing terminal-table 1.4.5
+
+Installing typhoeus 0.3.3
+
+Installing arachni 0.4.6
+
+Installing ffi 1.9.3
+
+Installing childprocess 0.5.3
+
+Installing diff-lcs 1.2.5
+
+Installing gherkin 2.12.2
+
+Installing multi_test 0.1.1
+
+Installing cucumber 1.3.15
+
+Installing rspec-support 3.0.2
+
+Installing rspec-expectations 3.0.2
+
+Installing aruba 0.5.4
+
+Installing background_process 1.3
+
+Installing bcrypt 3.1.7
+
+Installing sass 3.3.8
+
+Installing bootstrap-sass 3.1.1.1
+
+Installing cancan 1.6.10
+
+Installing xpath 2.0.0
+
+Installing capybara 2.3.0
+
+Installing carrierwave 0.10.0
+
+Installing orm_adapter 0.5.0
+
+Installing ckeditor 4.0.11
+
+Installing coffee-script-source 1.7.0
+
+Installing execjs 2.2.0
+
+Installing coffee-script 2.2.0
+
+Installing rack-ssl 1.3.4
+
+Installing rdoc 3.12.2
+
+Installing thor 0.19.1
+
+Installing railties 3.2.12
+
+Installing coffee-rails 3.2.2
+
+Installing rails 3.2.12
+
+Installing cucumber-rails 1.4.1
+
+Installing database_cleaner 1.3.0
+
+Installing thread_safe 0.3.4
+
+Installing warden 1.2.3
+
+Installing devise 3.2.4
+
+Installing launchy 2.4.2
+
+Installing email_spec 1.6.0
+
+Installing factory_girl 4.4.0
+
+Installing factory_girl_rails 4.4.1
+
+Installing trollop 2.0
+
+Installing gauntlt 1.0.10
+
+Installing jquery-rails 3.1.0
+
+Installing libv8 3.16.14.3
+
+Installing subexec 0.2.3
+
+Installing mini_magick 3.7.0
+
+Installing quiet_assets 1.0.3
+
+Installing ref 1.0.5
+
+Installing rest-client 1.6.7
+
+Installing rolify 3.4.0
+
+Installing rspec-core 3.0.2
+
+Installing rspec-mocks 3.0.2
+
+Installing rspec-rails 3.0.1
+
+Installing sass-rails 3.2.6
+
+Installing secure_headers 1.2.0
+
+Installing tcpsocket-wait 1.0.0
+
+Installing service_manager 0.6.4
+
+Installing simple_form 2.1.1
+
+Installing sqlite3 1.3.9
+
+Installing stripe 1.14.0
+
+Installing stripe_event 1.2.0
+
+Installing therubyracer 0.12.1
+
+Installing uglifier 2.5.1
+
+Your bundle is complete!
+
+It was installed into ./vendor/bundle
+
+Post-install message from arachni:
+
+Thank you for installing Arachni, here are some resources which should
+
+help you make the best of it:
+
+Homepage - http://arachni-scanner.com
+
+Blog - http://arachni-scanner.com/blog
+
+Documentation - http://arachni-scanner.com/wiki
+
+Support - http://support.arachni-scanner.com
+
+GitHub page - http://github.com/Arachni/arachni
+
+Code Documentation - http://rubydoc.info/github/Arachni/arachni
+
+Author - Tasos "Zapotek" Laskos (http://twitter.com/Zap0tek)
+
+Twitter - http://twitter.com/ArachniScanner
+
+Copyright - 2010-2014 Tasos Laskos
+
+License - Apache License v2
+
+Please do not hesitate to ask for assistance (via the support portal)
+
+or report a bug (via GitHub Issues) if you come across any problem.
+
+Post-install message from rdoc:
+
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+<= 1.8.6 : unsupported
+
+= 1.8.7 : gem install rdoc-data; rdoc-data --install
+
+= 1.9.1 : gem install rdoc-data; rdoc-data --install
+
+>= 1.9.2 : nothing to do! Yay!
+before_script.1
+
+$ ./set_token.sh
+before_script.2
+
+$ bundle exec rake db:migrate
+
+== CreateProjects: migrating =================================================
+
+-- create_table(:projects)
+
+-> 0.0022s
+
+== CreateProjects: migrated (0.0022s) ========================================
+
+== DeviseCreateUsers: migrating ==============================================
+
+-- create_table(:users)
+
+-> 0.0055s
+
+-- add_index(:users, :email, {:unique=>true})
+
+-> 0.0005s
+
+-- add_index(:users, :reset_password_token, {:unique=>true})
+
+-> 0.0005s
+
+== DeviseCreateUsers: migrated (0.0067s) =====================================
+
+== AddUserToProject: migrating ===============================================
+
+-- add_column(:projects, :owner, :string)
+
+-> 0.0009s
+
+== AddUserToProject: migrated (0.0010s) ======================================
+
+== CreateCkeditorAssets: migrating ===========================================
+
+-- create_table(:ckeditor_assets)
+
+-> 0.0024s
+
+-- add_index("ckeditor_assets", ["assetable_type", "type", "assetable_id"], {:name=>"idx_ckeditor_assetable_type"})
+
+-> 0.0007s
+
+-- add_index("ckeditor_assets", ["assetable_type", "assetable_id"], {:name=>"idx_ckeditor_assetable"})
+
+-> 0.0008s
+
+== CreateCkeditorAssets: migrated (0.0042s) ==================================
+
+== AddRichDescriptionToProject: migrating ====================================
+
+-- add_column(:projects, :rich_description, :string, {:limit=>2000})
+
+-> 0.0011s
+
+== AddRichDescriptionToProject: migrated (0.0012s) ===========================
+
+== AddSessionsTable: migrating ===============================================
+
+-- create_table(:sessions)
+
+-> 0.0694s
+
+-- add_index(:sessions, :session_id)
+
+-> 0.0008s
+
+-- add_index(:sessions, :updated_at)
+
+-> 0.0008s
+
+== AddSessionsTable: migrated (0.0713s) ======================================
+
+== RolifyCreateRoles: migrating ==============================================
+
+-- create_table(:roles)
+
+-> 0.0023s
+
+-- create_table(:users_roles, {:id=>false})
+
+-> 0.0007s
+
+-- add_index(:roles, :name)
+
+-> 0.0008s
+
+-- add_index(:roles, [:name, :resource_type, :resource_id])
+
+-> 0.0008s
+
+-- add_index(:users_roles, [:user_id, :role_id])
+
+-> 0.0007s
+
+== RolifyCreateRoles: migrated (0.0062s) =====================================
+
+== AddTimezoneToUser: migrating ==============================================
+
+-- add_column(:users, :timezone, :string)
+
+-> 0.0012s
+
+-- execute("update users set timezone = 'Eastern Time (US & Canada)' where timezone is NULL")
+
+-> 0.0003s
+
+== AddTimezoneToUser: migrated (0.0017s) =====================================
+
+before_script.3
+
+$ bundle exec rails s -d
+
+=> Booting WEBrick
+
+=> Rails 3.2.12 application starting in test on http://0.0.0.0:3000
+
+Rack::File headers parameter replaces cache_control after Rack 1.5.
+
+$ echo "Build Success"
+
+Build Success
+
+The command "echo "Build Success"" exited with 0.
+
+Done. Your build exited with 0.
